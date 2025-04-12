@@ -40,7 +40,7 @@ const Navbar = ({ setSearch }) => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">🎬TrailerMovies</Link>
+        <Link to="/home">🎬 JK TrailerMovies</Link>
       </div>
 
       <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -53,7 +53,7 @@ const Navbar = ({ setSearch }) => {
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
-            placeholder="😎Search movies..."
+            placeholder="Search movies..."
             className="searchInput"
           />
         </div>
@@ -64,7 +64,7 @@ const Navbar = ({ setSearch }) => {
           <li><Link to="/contact" className="navLink" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
 
           {isLoggedIn ? (
-            <li><button onClick={handleLogout} className="Logout">🩶Logout</button></li>
+            <li><button onClick={handleLogout} className="Logout">Logout</button></li>
           ) : (
             <>
               <li><Link to="/" className="navLink">Login</Link></li>

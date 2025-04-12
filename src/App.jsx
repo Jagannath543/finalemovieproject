@@ -1,10 +1,7 @@
-// src/App.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import Navbar from './MovieProject/Components/Navbar/Navbar';
-import Footer from './MovieProject/Components/Footer/Footer';
 import MovieHome from './MovieProject/Pages/Home/Home';
 import About from './MovieProject/Pages/About/About';
 import Contact from './MovieProject/Pages/Contact/Contact';
@@ -15,7 +12,7 @@ import Login from './firebase-Authentication/Login';
 import Signup from './firebase-Authentication/Signup';
 import Hoome from './firebase-Authentication/Hoome';
 
-import './App.css';
+import Layout from './Layout'; 
 
 const baseUrl = "https://api.themoviedb.org/3";
 const api_key = "94ad1dc27cfaadc07bdc15b1f4c85579";
@@ -24,10 +21,10 @@ const App = () => {
   const [movie, setMovie] = useState([]);
   const [search, setSearch] = useState("");
 
-  const fetchPopularMovies = async (page = 1) => {
+  const fetchPopularMovies = async () => {
     try {
       const response = await axios.get(`${baseUrl}/movie/popular`, {
-        params: { api_key, page },
+        params: { api_key },
       });
       setMovie(response.data.results);
     } catch (error) {
@@ -35,10 +32,10 @@ const App = () => {
     }
   };
 
-  const fetchSearchMovies = async (page = 1, searchQuery = "") => {
+  const fetchSearchMovies = async (query = "") => {
     try {
       const response = await axios.get(`${baseUrl}/search/movie`, {
-        params: { api_key, page, query: searchQuery },
+        params: { api_key, query },
       });
       setMovie(response.data.results);
     } catch (error) {
@@ -47,42 +44,29 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (search === "") {
-      fetchPopularMovies();
-    } else {
-      fetchSearchMovies(1, search);
-    }
+    search === "" ? fetchPopularMovies() : fetchSearchMovies(search);
   }, [search]);
 
   return (
-    <Router>
-      <div>
-        <Navbar setSearch={setSearch} />
+    <Router> {/* ✅ useLocation is now safe in children */}
+      <Routes>
+        {/* Routes without layout (no navbar/footer) */}
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
-        <Routes>
-          {/* Authentication */}
-          <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-
-          {/* Authenticated Landing */}
+        {/* Routes with layout */}
+        <Route element={<Layout setSearch={setSearch} />}>
           <Route path="/home" element={<Hoome movies={movie} />} />
-
-          {/* Main Movie Pages */}
           <Route path="/movies" element={<MovieHome movies={movie} />} />
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/actor/:actorId" element={<ActorDetails />} />
-
-          {/* Static Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+        </Route>
 
-          {/* Fallback Route */}
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-
-        <Footer />
-      </div>
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
     </Router>
   );
 };

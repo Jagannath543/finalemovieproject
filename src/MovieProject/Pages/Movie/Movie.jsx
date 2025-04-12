@@ -68,6 +68,9 @@ const Movie = () => {
   };
 
   useEffect(() => {
+    // Scroll to top when the component is mounted or when `id` changes
+    window.scrollTo(0, 0);
+
     if (id) {
       fetchSpecificMovie(id);
       fetchCastData(id);

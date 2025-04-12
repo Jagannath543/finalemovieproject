@@ -137,24 +137,55 @@ body.dark .searchInput {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
+/* Logout Button Styling */
 .Logout {
-  width: 6rem;
-  height: 2.5rem;
+  width: 8rem; /* Increased width for better appearance */
+  height: 2.5rem; /* Slightly taller button for easier clicking */
   border: none;
   border-radius: 30px;
   background: linear-gradient(135deg, #ff416c, #ff4b2b);
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Increased font size for readability */
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px; /* Added padding for spacing */
 }
 
+/* Hover Effect */
 .Logout:hover {
   background: linear-gradient(135deg, #ff4b2b, #ff416c);
-  transform: scale(1.05);
+  transform: scale(1.1); /* Increased scaling for more interactive effect */
   color: #ffe8e8;
+}
+
+/* Focus Effect */
+.Logout:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 77, 43, 0.5); /* Subtle focus glow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Logout {
+    width: 6rem; /* Adjust the width on smaller screens */
+    height: 2.5rem; /* Adjust the height */
+    font-size: 1rem; 
+  }
+}
+
+/* For very small screens (like mobile phones in portrait mode) */
+@media (max-width: 480px) {
+  .Logout {
+    width: 5rem; /* Further adjust the width */
+    height: 2rem; /* Adjust the height */
+    font-size: 0.9rem; 
+  /* Reduce font size even more */
+  }
 }
 
 /* Mobile & Tablet Styles (up to 1024px) */
@@ -227,7 +258,7 @@ body.dark .searchInput {
   }
   .navLink {
     font-size: 15px;
-    margin-left: 40px;
+    margin-left: 30px;
   }
   .themeToggle,
   .Logout {

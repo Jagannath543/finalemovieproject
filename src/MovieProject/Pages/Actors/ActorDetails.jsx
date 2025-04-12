@@ -47,6 +47,9 @@ const ActorDetails = () => {
   };
 
   useEffect(() => {
+    // Scroll to top when the component is mounted or when `actorId` changes
+    window.scrollTo(0, 0);
+
     if (actorId) {
       fetchActorDetails(actorId);
       fetchActorMovies(actorId);
@@ -82,37 +85,29 @@ const ActorDetails = () => {
         <p><strong>Birthday:</strong> {actor.birthday || "Unknown"}</p>
         <p><strong>Place of Birth:</strong> {actor.place_of_birth || "Unknown"}</p>
         <p><strong>Age:</strong> {actor.birthday ? new Date().getFullYear() - new Date(actor.birthday).getFullYear() : "Unknown"}</p>
+
         <div className="actor-movies">
-    <h2>Movies</h2>
-    <ul>
-        {actorMovies.slice(0, 6).map((movie) => (
-            <li key={movie.id} className="movie-item">
+          <h2>Movies</h2>
+          <ul>
+            {actorMovies.slice(0, 6).map((movie) => (
+              <li key={movie.id} className="movie-item">
                 {/* Display Movie Poster */}
                 {movie.poster_path && (
-                    <img 
-                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
-                        alt={movie.title} 
-                    />
+                  <img 
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
+                    alt={movie.title} 
+                  />
                 )}
                 <h3>{movie.title}</h3>
                 <p>{movie.release_date ? movie.release_date.split('-')[0] : "Unknown"}</p> {/* Showing year of release */}
-            </li>
-        ))}
-    </ul>
-</div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
+      </div>
     </div>
-
-     </div>
-     
-     
-     
-     
-     
   );
-  
 };
-
-
 
 export default ActorDetails;
