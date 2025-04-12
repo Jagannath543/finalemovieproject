@@ -228,6 +228,7 @@ body.dark .modal-content {
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
 
+
 /* 📱 Mobile Devices */
 @media (max-width: 480px) {
   .movie-container {
@@ -370,7 +371,7 @@ body.dark .modal-content {
     top: 5px;
     right: 30px;
     font-size: 20px;
-    background-color: cyan;
+    /* background-color: cyan; */
     padding: 2px 8px;
     border-radius: 50%;
     color: orangered;
@@ -400,7 +401,7 @@ body.dark .modal-content {
     top: 5px;
     right: 2px;
     font-size: 26px;
-    background-color: cyan;
+    /* background-color: cyan; */
     padding: 2px 8px;
     border-radius: 50%;
     color: orangered;

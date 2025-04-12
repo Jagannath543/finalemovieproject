@@ -1,87 +1,103 @@
-/* === Auth Container (Login/Signup Box) === */
+/* === Auth Container === */
 .auth-container {
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
   margin: 60px auto;
   padding: 40px;
-  border: 1px solid #444;
-  border-radius: 12px;
-  background-color: #222;
-  color: white;
+  border-radius: 16px;
+  background: rgba(30, 30, 30, 0.9);
+  color: #fff;
   text-align: center;
-  
-  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2), 0 0 40px rgba(58, 71, 213, 0.2);
-
-}
-p{
-  margin: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); /* black depth */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.auth-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); /* more depth on hover */
+}
+
+h2 {
+  color: #ffaa00;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
 
 /* === Inputs === */
 .auth-container input {
-  display: block;
   width: 100%;
-  margin: 10px 0;
-  padding: 12px;
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 10px;
+  background: #2a2a2a;
+  color: #fff;
   font-size: 16px;
-  border-radius: 6px;
   border: 2px solid transparent;
-  background: #333;
-  color: white;
   outline: none;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .auth-container input:focus,
 .auth-container input:hover {
-  border: 2px solid #ff0077;
-  box-shadow: 0 0 10px #ff0077;
+  border-color: #ff00c8;
+  box-shadow: 0 0 10px #ff00c8;
 }
 
+/* === Button === */
 .auth-container button {
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #00d2ff, #3a47d5); /* 💙 Electric blue to deep purple */
-  color: white;
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
   border: none;
-  cursor: pointer;
+  font-size: 16px;
   font-weight: bold;
-  font-size: 1rem;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 210, 255, 0.5); /* subtle glow */
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00ffe7, #7f00ff);
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.3);
+  transition: 0.4s ease;
 }
 
 .auth-container button:hover {
-  background: linear-gradient(135deg, #3a47d5, #7f00ff); /* 💜 Shift to deeper gradient */
-  box-shadow: 0 0 15px #7f00ff, 0 0 25px #3a47d5; /* 💫 Glow effect */
-  transform: scale(1.06);
+  background: linear-gradient(135deg, #7f00ff, #00ffe7);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 200, 0.5);
 }
-.Login:hover{
+
+/* === Link Hover Effects === */
+.Login,
+.sign-but {
+  color: #ff00c8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.Login:hover,
+.sign-but:hover {
   text-decoration: underline;
+  color: #ffaa00;
   cursor: pointer;
-  color: orange;
 }
 
-.sign-but:hover{
-text-decoration: underline;
-color: orange;
+/* === Paragraph Styling === */
+p {
+  margin: 12px 0;
+  font-size: 14px;
+  opacity: 0.9;
 }
 
-
-/* ===================== Mobile-Specific Styles ===================== */
-@media (max-width: 768px),
-       (max-width: 480px),
-       (max-width: 360px) {
+/* === Responsive === */
+@media (max-width: 768px) {
   .auth-container {
     width: 90%;
-    padding: 40px;
-    margin: 60px auto;
-    
+    padding: 30px;
   }
-  p{
-    margin: 10px;
+
+  h2 {
+    font-size: 22px;
   }
 }
