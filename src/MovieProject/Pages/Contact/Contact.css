@@ -1,0 +1,220 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Main Container */
+.contact-container {
+    width: 100%;
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Header */
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ff6a00;
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Layout */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Cards */
+.contact-form,
+.contact-info {
+    flex: 1 1 450px;
+    max-width: 540px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover,
+.contact-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 65px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings */
+.contact-form h2,
+.contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Inputs & Textareas */
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    font-size: 1rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 105, 0, 0.3);
+}
+
+/* Button */
+.contact-form button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ee0979, #ff6a00);
+}
+
+/* Contact Info */
+.contact-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-info li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #333;
+    padding-left: 20px;
+    position: relative;
+}
+
+.contact-info li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ff6a00;
+    font-size: 1.3rem;
+}
+
+/* Map */
+#map {
+    height: 220px;
+    border-radius: 12px;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+#map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 1rem;
+    background-color: #1e212d;
+    color: #fff;
+    margin-top: 50px;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-header h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 40px 15px;
+    }
+
+    .contact-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-header p {
+        font-size: 1rem;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 20px;
+    }
+
+    .contact-form button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    #map {
+        height: 180px;
+    }
+}
+    

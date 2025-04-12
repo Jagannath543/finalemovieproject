@@ -1,0 +1,414 @@
+/* 🎬 Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+  min-height: 100vh;
+  color: #333;
+  width: 100%;
+}
+
+.movie-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center;
+}
+
+.movie-container img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.movie-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.movie-vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+.movie-vote p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+}
+
+.movie-vote button {
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 94, 98, 0.3);
+}
+
+.movie-vote button:hover {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 94, 98, 0.5);
+}
+
+.movie-cast {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.movie-cast h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-shadow: 2px 2px 5px orange;
+}
+
+.movie-cast ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.actor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.actor-img-container {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.actor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actor-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 🎞️ Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: auto;
+  max-width: 700px;
+  overflow: hidden;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  z-index: 1100;
+}
+
+.close:hover {
+  color: #ff4500;
+}
+
+/* ✅ Responsive YouTube Video */
+.modal-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.modal-video-wrapper iframe {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+
+/* 🌙 Dark Mode Support */
+body.dark .movie-container {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark .movie-container h1,
+body.dark .movie-vote p,
+body.dark .movie-container p {
+  color: #ddd;
+}
+
+body.dark .movie-vote button {
+  background: linear-gradient(135deg, #ffa500, #ffcc00);
+  color: #121212;
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+body.dark .movie-vote button:hover {
+  background: linear-gradient(135deg, #ffcc00, #ffa500);
+}
+
+body.dark .modal-content {
+  background-color: #fff;
+  color: black;
+}
+
+body.dark .close {
+  color: black;
+}
+
+body.dark .close:hover {
+  color: #ffa500;
+}
+
+body.dark .movie-cast h2 {
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px #ffa500;
+}
+
+body.dark .movie-container img,
+body.dark .modal-content {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* 📱 Mobile Devices */
+@media (max-width: 480px) {
+  .movie-container {
+    padding: 15px;
+  }
+
+  .movie-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .movie-container p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .modal {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 0;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal iframe {
+    width: 100%;
+    height: 55vh;
+    border: none;
+    border-radius: 0;
+  }
+
+  .close {
+    font-size: 26px;
+    top: 10px;
+    right: 20px;
+    background: transparent;
+  }
+
+  .movie-vote {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .movie-vote button {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    border-radius: 25px;
+  }
+
+  .movie-cast ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 📱 Smaller Devices */
+@media (max-width: 360px) {
+  .modal iframe {
+    height: 50vh;
+  }
+
+  .close {
+    font-size: 22px;
+    top: 1px;
+    right: -25px;
+  }
+}
+
+/* 📱 Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .movie-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .movie-container p {
+    font-size: 1.05rem;
+  }
+
+  .modal-content {
+    max-width: 95%;
+  }
+}
+
+/* 💻 Small Laptops & Large Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .movie-container {
+    padding: 30px;
+  }
+
+  .movie-container h1 {
+    font-size: 2.3rem;
+  }
+
+  .movie-container p {
+    font-size: 1.1rem;
+  }
+
+  .modal-content {
+    max-width: 90%;
+  }
+}
+
+/* 🖥️ Large Screens */
+@media (min-width: 1025px) {
+  .movie-container {
+    padding: 40px;
+  }
+
+  .movie-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .movie-container p {
+    font-size: 1.2rem;
+  }
+}
+/* 📱 iPhone X / 375px Mobile View */
+@media (max-width: 375px) {
+  .modal-content {
+    max-width: 95%;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    font-size: 20px;
+    background-color: cyan;
+    padding: 2px 8px;
+    border-radius: 50%;
+    color: orangered;
+    z-index: 1010;
+  }
+
+  .modal iframe {
+    height: 50vh;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* 📱 iPhone 12 Pro Max / 425px Mobile View */
+@media (min-width: 376px) and (max-width: 425px) {
+  .modal-content {
+    max-width: 95%;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 26px;
+    background-color: cyan;
+    padding: 2px 8px;
+    border-radius: 50%;
+    color: orangered;
+    z-index: 1010;
+  }
+
+  .modal iframe {
+    height: 52vh;
+    border-radius: 0 0 10px 10px;
+  }
+}

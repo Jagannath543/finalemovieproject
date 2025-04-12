@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --light-bg: #ffffff;
+  --light-text: #333;
+  --dark-bg: #121212;
+  --dark-text: #f5f5f5;
+  --accent: #ff5e62;
+  --hover-accent: #ffcc00;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 16px 24px;
+  color: white;
+  position: relative;
+  z-index: 999;
+}
+
+body.dark .navbar {
+  background-color: #1e1e1e;
+}
+
+/* Logo */
+.logo a {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Menu Icon */
+.menu-icon {
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+/* Nav Items */
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.4s ease-in-out;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--hover-accent);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--hover-accent);
+  transition: 0.3s;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Search Input */
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 6px 14px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  width: 220px;
+  margin-right: 20px;
+}
+
+body.dark .searchInput {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+/* Theme Toggle */
+.themeToggle {
+  margin-left: 1rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.themeToggle:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: scale(1.05);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+.Logout {
+  width: 6rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Logout:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: scale(1.05);
+  color: #ffe8e8;
+}
+
+/* Mobile & Tablet Styles (up to 1024px) */
+@media (max-width: 1024px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #333;
+    padding: 20px;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  .nav-items.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  body.dark .nav-items {
+    background-color: #1e1e1e;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 14px;
+    margin-left: 2rem;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-bottom: 12px;
+    flex-direction: column;
+  }
+
+  .searchInput,
+  .themeToggle,
+  .Logout {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .themeToggle {
+    margin-left: 0;
+    margin-top: 14px;
+  }
+}
+
+/* Small Mobile Adjustments (up to 480px) */
+@media (max-width: 480px) {
+  .logo a {
+    font-size: 22px;
+  }
+  .searchInput {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  .navLink {
+    font-size: 15px;
+    margin-left: 40px;
+  }
+  .themeToggle,
+  .Logout {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    margin-left: 10px;
+  }
+}
+
+/* Anchor Reset */
+a {
+  text-decoration: none;
+}
